@@ -9,7 +9,21 @@ pie_data = [
     {"company": "Company Y", "market_share": 0.30},
     {"company": "Company Z", "market_share": 0.15}
 ]
+# adapted from: https://matplotlib.org/gallery/pie_and_polar_charts/pie_features.html
 
+import matplotlib.pyplot as plt
+
+# Pie chart, where the slices will be ordered and plotted counter-clockwise:
+labels = ["Company X", "Company Y", "Company Z"]
+sizes = [.55, .30, .15]
+#labels = pie_data["company"]
+#sizes = pie_data["market_share"]
+
+fig1, ax1 = plt.subplots()
+ax1.pie(sizes, labels=labels, autopct='%1.1f%%', shadow=True, startangle=90)
+ax1.axis("equal")  # Equal aspect ratio ensures that pie is drawn as a circle.
+
+plt.show() # need to explicitly "show" the chart window
 print("----------------")
 print("GENERATING PIE CHART...")
 print(pie_data) # TODO: create a pie chart based on the pie_data
